@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 import './joke.css';
 
 const Joke = ({ userId, userName, text, likes, dislikes }) => {
-  const [upLikes, setUpLikes] = useState(0);
-  const [downLikes, setDownLikes] = useState(0);
+  const [upLikes, setUpLikes] = useState(likes);
+  const [downLikes, setDownLikes] = useState(dislikes);
 
   const Like = () => {
     setUpLikes(upLikes + 1);
@@ -31,7 +31,7 @@ const Joke = ({ userId, userName, text, likes, dislikes }) => {
             onClick={Like}
           ></button>
           <span id="likes-up" className="likes-count likes-count--up">
-            {likes}
+            {upLikes}
           </span>
           <button
             id="btn-down"
@@ -39,7 +39,7 @@ const Joke = ({ userId, userName, text, likes, dislikes }) => {
             onClick={Dislike}
           ></button>
           <span id="likes-down" className="likes-count likes-count--down">
-            {dislikes}
+            {downLikes}
           </span>
         </div>
       </div>
