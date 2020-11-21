@@ -2,7 +2,7 @@
 V hlavním souboru projektu importujte pole objektů ze souboru jokes.js. Zobrazte každý vtip z pole pomocí komponenty Joke.
 Výsledná aplikace by měla zobrazovat seznam všech vtipů se správnými uživateli a počty likeů. Tlačítka u každého vtipu by měla fungovat tak, že mění počty likeů uvnitř každé jednotlivé komponenty. */
 import React, { useState } from 'react';
-import '../style.css';
+import './joke.css';
 import asset from '../assets/img/user01.png';
 
 const Joke = () => {
