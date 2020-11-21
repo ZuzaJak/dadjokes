@@ -3,9 +3,8 @@ V hlavním souboru projektu importujte pole objektů ze souboru jokes.js. Zobraz
 Výsledná aplikace by měla zobrazovat seznam všech vtipů se správnými uživateli a počty likeů. Tlačítka u každého vtipu by měla fungovat tak, že mění počty likeů uvnitř každé jednotlivé komponenty. */
 import React, { useState } from 'react';
 import './joke.css';
-import asset from './assets/img/user01.png';
 
-const Joke = () => {
+const Joke = ({ userId, userName, text, likes, dislikes }) => {
   const [upLikes, setUpLikes] = useState(0);
   const [downLikes, setDownLikes] = useState(0);
 
@@ -20,14 +19,10 @@ const Joke = () => {
       <div className="joke">
         <div className="joke__body">
           <div className="joke__user">
-            <img className="user-avatar" src={asset} />
-            <p className="user-name">Neroxx</p>
+            <img className="user-avatar" src={`./assets/img/${userId}.png`} />
+            <p className="user-name">{userName}</p>
           </div>
-          <p className="joke__text">
-            The secret service isn't allowed to yell "Get down!" anymore when
-            the president is about to be attacked. Now they have to yell
-            "Donald, duck!"
-          </p>
+          <p className="joke__text">{text}</p>
         </div>
         <div className="joke__likes">
           <button
@@ -36,7 +31,7 @@ const Joke = () => {
             onClick={Like}
           ></button>
           <span id="likes-up" className="likes-count likes-count--up">
-            {upLikes}
+            {likes}
           </span>
           <button
             id="btn-down"
@@ -44,7 +39,7 @@ const Joke = () => {
             onClick={Dislike}
           ></button>
           <span id="likes-down" className="likes-count likes-count--down">
-            {downLikes}
+            {dislikes}
           </span>
         </div>
       </div>

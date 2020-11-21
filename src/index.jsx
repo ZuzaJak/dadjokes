@@ -3,11 +3,20 @@ import { render } from 'react-dom';
 import Joke from './Joke/joke.jsx';
 import './index.html';
 import './style.css';
+import { jokes } from './jokes.js';
 
 const App = () => {
   return (
     <div className="container">
-      <Joke />
+      {jokes.map((joke) => (
+        <Joke
+          userId={joke.id}
+          userName={joke.name}
+          text={joke.text}
+          likes={joke.likes}
+          dislikes={joke.dislikes}
+        />
+      ))}
     </div>
   );
 };
